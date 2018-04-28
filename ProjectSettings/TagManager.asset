@@ -11,6 +11,8 @@ TagManager:
   - Prostitute
   - Food
   - Drink
+  - BarOrder
+  - FoodOrder
   layers:
   - Default
   - TransparentFX
