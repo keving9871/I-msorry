@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Food {
 
-    public Sprite sprite;
+    public GameObject Prefab;
     public string name;
     public int forpreference;
 
@@ -13,10 +13,10 @@ public class Food {
 
     }
 
-    public Food(Sprite sprite, int preference)
+    public Food(GameObject Prefab_, int preference)
     {
-        this.sprite = sprite;
-        
+        Prefab = Prefab_;
+
         this.forpreference = preference;
     }
 }

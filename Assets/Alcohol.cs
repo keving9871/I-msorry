@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Alcohol  {
 
-    public Sprite sprite;
+    public GameObject Prefab;
     
     public int forpreference;
 
@@ -13,10 +13,10 @@ public class Alcohol  {
 
     }
 
-    public Alcohol(Sprite sprite,  int preference)
+    public Alcohol(GameObject Prefab_, int preference)
     {
-        this.sprite = sprite;
-      
+        Prefab = Prefab_;
+
         this.forpreference = preference;
     }
 }

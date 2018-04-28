@@ -4,19 +4,20 @@ using UnityEngine;
 
 public class Prostitute {
 
-    public Sprite sprite;
+   
+    public GameObject Prefab;
     
     public int forpreference;
 
     public Prostitute()
     {
-
+       
     }
 
-    public Prostitute(Sprite sprite, int preference)
+    public Prostitute(GameObject Prefab_, int preference)
     {
-        this.sprite = sprite;
-       
+        Prefab = Prefab_;
+
         this.forpreference = preference;
     }
 }

@@ -7,28 +7,36 @@ public class GameManager : MonoBehaviour
 
     public Prostitute[] Prostitutes;
 
-    public Sprite Berthas; //1
-    public Sprite Amalias; //2
-    public Sprite Eleanors; //3
-    public Sprite Fannies; //4
-    public Sprite Mollies; //5
-    public Sprite Pearls; //6
-    public Sprite Ais; //7
-    public Sprite Vanessas; //8
-    public Sprite Julias; //9
-    public Sprite Alices; //10
+    public GameObject Berthas; //1
+    public GameObject Amalias; //2
+    public GameObject Eleanors; //3
+    public GameObject Fannies; //4
+    public GameObject Mollies; //5
+    public GameObject Pearls; //6
+    public GameObject Ais; //7
+    public GameObject Vanessas; //8
+    public GameObject Julias; //9
+    public GameObject Alices; //10
+
+    
 
     public Alcohol[] Alcohols;
 
-    public Sprite Gins; //1
-    public Sprite Liquors;//2
-    public Sprite Whiskeys;//3
-    public Sprite Bourbons;//
+    public GameObject Gins; //1
+    public GameObject Liquors;//2
+    public GameObject Whiskeys;//3
+    public GameObject Bourbons;//
 
 
     public GameObject Child;
     public GameObject Parent;
-    public GameObject Panel;
+    public GameObject BarPanel;
+    public GameObject FoodPanel;
+
+    
+
+    public bool barpanelopen = false;
+    public bool foodpanelopen = false;
 
 
     //score 
@@ -85,7 +93,7 @@ public class GameManager : MonoBehaviour
         Alcohols[2] = Liquor;
         Alcohols[3] = Whiskey;
         Alcohols[4] = Bourbon;
-    
+
 
 
         // Food(Sprite sprite, int preference)
@@ -94,9 +102,9 @@ public class GameManager : MonoBehaviour
         // Customer(Sprite sprite, int food, int drink, int women)
 
 
-   
-     }
-    
+
+    }
+
 
 
 
@@ -111,28 +119,51 @@ public class GameManager : MonoBehaviour
             if (hit)
             {
 
-                if (hit.collider.gameObject.tag == "Highlight")
+                if (hit.collider.gameObject.tag == "Chef")
                 {
-                    Child = hit.collider.gameObject;
+                    FoodPanel.SetActive(true);
+                    foodpanelopen = true;
 
-                    Child.GetComponent<SpriteRenderer>().enabled = true;
-                    
 
 
 
                 }
                 if (hit.collider.gameObject.tag == "Bar")
                 {
-                    
-                    Panel.SetActive(true);
 
+                    BarPanel.SetActive(true);
+                    barpanelopen = true;
+
+                }
+
+            }
+            else
+            {
+                if (foodpanelopen == true)
+                {
+                    FoodPanel.SetActive(false);
+                    foodpanelopen = false;
+                }
+                if (barpanelopen == true)
+                {
+                    BarPanel.SetActive(false);
+                    barpanelopen = false;
                 }
 
             }
 
         }
     }
-  
-    
+
+    public void BarOrder(int OrderNumber)
+    {
+        
+        MakeDrink(Alcohols[OrderNumber].Prefab);
+    }
+    public void MakeDrink(GameObject DrinkPrefab)
+    {
+        Instantiate<GameObject>(DrinkPrefab);
+    }
+
 }
 
