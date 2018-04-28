@@ -2,7 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GameManager : MonoBehaviour {
+public class GameManager : MonoBehaviour
+{
 
     public Prostitute[] Prostitutes;
 
@@ -22,16 +23,31 @@ public class GameManager : MonoBehaviour {
     public Sprite Gins; //1
     public Sprite Liquors;//2
     public Sprite Whiskeys;//3
-    public Sprite Bourbons;//4
+    public Sprite Bourbons;//
 
 
+    public GameObject Child;
+    public GameObject Parent;
+    public GameObject Panel;
 
+
+    //score 
+
+    public int RoomsRented;
+    public int FoodSold;
+    public int DrinksMade;
+
+    public int[] RoomsRentedScores;
+    public int[] FoodSoldScores;
+    public int[] DrinksMadeScores;
 
 
 
 
     // Use this for initialization
-    void Start () {
+    void Start()
+    {
+
         //Prostitute(Sprite sprite, string name, int preference)
         Prostitute Bertha = new Prostitute(Berthas, 1);
         Prostitute Amalia = new Prostitute(Amalias, 2);
@@ -69,6 +85,8 @@ public class GameManager : MonoBehaviour {
         Alcohols[2] = Liquor;
         Alcohols[3] = Whiskey;
         Alcohols[4] = Bourbon;
+    
+
 
         // Food(Sprite sprite, int preference)
 
@@ -76,10 +94,45 @@ public class GameManager : MonoBehaviour {
         // Customer(Sprite sprite, int food, int drink, int women)
 
 
-    }
+   
+     }
+    
+
+
+
 
     // Update is called once per frame
-    void Update () {
-		
-	}
+    void Update()
+    {
+        if (Input.GetMouseButtonDown(0))
+        {
+            // Scene Management && point and click mechanic
+            RaycastHit2D hit = Physics2D.Raycast(Camera.main.ScreenToWorldPoint(Input.mousePosition), Camera.main.transform.forward);
+            if (hit)
+            {
+
+                if (hit.collider.gameObject.tag == "Highlight")
+                {
+                    Child = hit.collider.gameObject;
+
+                    Child.GetComponent<SpriteRenderer>().enabled = true;
+                    
+
+
+
+                }
+                if (hit.collider.gameObject.tag == "Bar")
+                {
+                    
+                    Panel.SetActive(true);
+
+                }
+
+            }
+
+        }
+    }
+  
+    
 }
+
