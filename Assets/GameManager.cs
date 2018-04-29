@@ -25,15 +25,23 @@ public class GameManager : MonoBehaviour
     public GameObject Gins; //1
     public GameObject Liquors;//2
     public GameObject Whiskeys;//3
-    public GameObject Bourbons;//
+    public GameObject Bourbons;//4
+
+
+
+
+    public Food[] Foods;
+
+    public GameObject Chickens;//1
+    public GameObject BGs;//2
+    public GameObject BBs;//3
+    public GameObject Steaks;//4
 
 
     public GameObject Child;
     public GameObject Parent;
     public GameObject BarPanel;
     public GameObject FoodPanel;
-
-    
 
     public bool barpanelopen = false;
     public bool foodpanelopen = false;
@@ -96,16 +104,18 @@ public class GameManager : MonoBehaviour
         Alcohols[3] = Whiskey;
         Alcohols[4] = Bourbon;
 
+        //public Food(GameObject Prefab_, int preference, bool served_, bool highlighted_)
+        Food Steak = new Food(Steaks, 1, false, false);
+        Food BB = new Food(BBs, 2, false, false);
+        Food BG = new Food(BGs, 3, false, false);
+        Food Chicken = new Food(Chickens, 4, false, false);
 
+        Foods = new Food[5];
 
-
-
-
-
-
-
-
-        // Food(Sprite sprite, int preference)
+        Foods[1] = Steak;
+        Foods[2] = BB;
+        Foods[3] = BG;
+        Foods[4] = Chicken;
 
 
         // Customer(Sprite sprite, int food, int drink, int women)
@@ -128,7 +138,7 @@ public class GameManager : MonoBehaviour
             if (hit)
             {
 
-                if (hit.collider.gameObject.tag == "Chef")
+                if (hit.collider.gameObject.tag == "Chef" && SomethingsHighlighted == false)
                 {
                     FoodPanel.SetActive(true);
                     foodpanelopen = true;
@@ -137,17 +147,45 @@ public class GameManager : MonoBehaviour
 
 
                 }
-                if (hit.collider.gameObject.tag == "Bar")
+                if (hit.collider.gameObject.tag == "Bar" && SomethingsHighlighted == false)
                 {
 
                     BarPanel.SetActive(true);
                     barpanelopen = true;
 
                 }
-                if(hit.collider.gameObject.tag == "Bottle")
+                if(hit.collider.gameObject.tag == "Bottle" && SomethingsHighlighted == false)
                 {
                     Alcohols[2].Highlighted = true;
-                    Debug.Log("hit");
+                   
+                    SomethingsHighlighted = true;
+
+                }
+                if (hit.collider.gameObject.tag == "Steak" && SomethingsHighlighted == false)
+                {
+                    Foods[1].Highlighted = true;
+
+                    SomethingsHighlighted = true;
+
+                }
+                if (hit.collider.gameObject.tag == "BB" && SomethingsHighlighted == false)
+                {
+                    Foods[2].Highlighted = true;
+
+                    SomethingsHighlighted = true;
+
+                }
+                if (hit.collider.gameObject.tag == "BG" && SomethingsHighlighted == false)
+                {
+                    Foods[3].Highlighted = true;
+
+                    SomethingsHighlighted = true;
+
+                }
+                if (hit.collider.gameObject.tag == "Chicken" && SomethingsHighlighted == false)
+                {
+                    Foods[4].Highlighted = true;
+
                     SomethingsHighlighted = true;
 
                 }
@@ -168,16 +206,16 @@ public class GameManager : MonoBehaviour
                 }
                 if(SomethingsHighlighted == true)
                 {
-                    Debug.Log("run");
-                    for (int i = 0; i < Alcohols.Length; i++)
+                    
+                    for (int i = 1; i < Alcohols.Length; i++)
                     {
                         if(Alcohols[i].Highlighted == true)
                         {
                             Alcohols[i].Highlighted = false;
                             SomethingsHighlighted = false;
-                            Debug.Log("off");
+                            
                         }
-                        Debug.Log(i);
+                        
                     }
                     
                 }
@@ -193,6 +231,7 @@ public class GameManager : MonoBehaviour
         MakeDrink(Alcohols[OrderNumber].Prefab);
         Debug.Log("barorder");
     }
+    
     public void MakeDrink(GameObject DrinkPrefab)
     {
         Instantiate<GameObject>(DrinkPrefab);
@@ -242,6 +281,55 @@ public class GameManager : MonoBehaviour
     {
        // gameObject.GetComponent<SpriteRenderer>.sprite = (gameObject)Highlighted;
     }
+    public void FoodOrder(int OrderNumber)
+    {
 
+        MakeFood(Foods[OrderNumber].Prefab);
+       
+    }
+
+    public void MakeFood(GameObject DrinkPrefab)
+    {
+        Instantiate<GameObject>(DrinkPrefab);
+        
+
+    }
+    public void SteakOrder()
+    {
+        if (Foods[1].served == false)
+        {
+            FoodOrder(1);
+            Foods[1].served = true;         
+        }      
+        FoodPanel.SetActive(false);
+    }
+    public void BBOrder()
+    {
+        if (Foods[2].served == false)
+        {
+            FoodOrder(2);
+            Foods[2].served = true;
+        }
+        FoodPanel.SetActive(false);
+    }
+    public void BGOrder()
+    {
+        if (Foods[3].served == false)
+        {
+            FoodOrder(3);
+            Foods[3].served = true;
+        }
+        FoodPanel.SetActive(false);
+    }
+    public void ChickenOrder()
+    {
+        if (Foods[4].served == false)
+        {
+            FoodOrder(4);
+            Foods[4].served = true;
+        }
+        FoodPanel.SetActive(false);
+    }
+ 
 }
 

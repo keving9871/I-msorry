@@ -14,6 +14,10 @@ TagManager:
   - BarOrder
   - FoodOrder
   - Bottle
+  - Chicken
+  - BB
+  - BG
+  - Steak
   layers:
   - Default
   - TransparentFX
