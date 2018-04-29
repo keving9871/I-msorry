@@ -50,23 +50,25 @@ public class GameManager : MonoBehaviour
     public int[] DrinksMadeScores;
 
 
+    public bool SomethingsHighlighted = false;
+
 
 
     // Use this for initialization
     void Start()
     {
 
-        //Prostitute(Sprite sprite, string name, int preference)
-        Prostitute Bertha = new Prostitute(Berthas, 1);
-        Prostitute Amalia = new Prostitute(Amalias, 2);
-        Prostitute Eleanor = new Prostitute(Eleanors, 3);
-        Prostitute Fannie = new Prostitute(Fannies, 4);
-        Prostitute Mollie = new Prostitute(Mollies, 5);
-        Prostitute Pearl = new Prostitute(Pearls, 6);
-        Prostitute Ai = new Prostitute(Ais, 7);
-        Prostitute Vanessa = new Prostitute(Vanessas, 8);
-        Prostitute Julia = new Prostitute(Julias, 9);
-        Prostitute Alice = new Prostitute(Alices, 10);
+        //Prostitute(Sprite sprite, string name, int preference, highlighted)
+        Prostitute Bertha = new Prostitute(Berthas, 1, false);
+        Prostitute Amalia = new Prostitute(Amalias, 2, false);
+        Prostitute Eleanor = new Prostitute(Eleanors, 3, false);
+        Prostitute Fannie = new Prostitute(Fannies, 4, false);
+        Prostitute Mollie = new Prostitute(Mollies, 5, false);
+        Prostitute Pearl = new Prostitute(Pearls, 6, false);
+        Prostitute Ai = new Prostitute(Ais, 7, false);
+        Prostitute Vanessa = new Prostitute(Vanessas, 8, false);
+        Prostitute Julia = new Prostitute(Julias, 9, false);
+        Prostitute Alice = new Prostitute(Alices, 10, false);
 
         Prostitutes = new Prostitute[11];
 
@@ -81,11 +83,11 @@ public class GameManager : MonoBehaviour
         Prostitutes[9] = Julia;
         Prostitutes[10] = Alice;
 
-        //Alcohol(Sprite sprite, string name, int preference)
-        Alcohol Gin = new Alcohol(Gins, 1);
-        Alcohol Liquor = new Alcohol(Liquors, 2);
-        Alcohol Whiskey = new Alcohol(Whiskeys, 3);
-        Alcohol Bourbon = new Alcohol(Bourbons, 4);
+        //Alcohol(Sprite sprite, string name, int preference, served, highlighted)
+        Alcohol Gin = new Alcohol(Gins, 1, false, false);
+        Alcohol Liquor = new Alcohol(Liquors, 2, false, false);
+        Alcohol Whiskey = new Alcohol(Whiskeys, 3, false, false);
+        Alcohol Bourbon = new Alcohol(Bourbons, 4, false, false);
 
         Alcohols = new Alcohol[5];
 
@@ -93,6 +95,13 @@ public class GameManager : MonoBehaviour
         Alcohols[2] = Liquor;
         Alcohols[3] = Whiskey;
         Alcohols[4] = Bourbon;
+
+
+
+
+
+
+
 
 
 
@@ -135,19 +144,42 @@ public class GameManager : MonoBehaviour
                     barpanelopen = true;
 
                 }
+                if(hit.collider.gameObject.tag == "Bottle")
+                {
+                    Alcohols[2].Highlighted = true;
+                    Debug.Log("hit");
+                    SomethingsHighlighted = true;
+
+                }
 
             }
             else
             {
+                Debug.Log("else");
                 if (foodpanelopen == true)
                 {
-                    FoodPanel.SetActive(false);
-                    foodpanelopen = false;
+                  //  FoodPanel.SetActive(false);
+                   // foodpanelopen = false;
                 }
                 if (barpanelopen == true)
                 {
-                    BarPanel.SetActive(false);
-                    barpanelopen = false;
+                   // BarPanel.SetActive(false);
+                   // barpanelopen = false;
+                }
+                if(SomethingsHighlighted == true)
+                {
+                    Debug.Log("run");
+                    for (int i = 0; i < Alcohols.Length; i++)
+                    {
+                        if(Alcohols[i].Highlighted == true)
+                        {
+                            Alcohols[i].Highlighted = false;
+                            SomethingsHighlighted = false;
+                            Debug.Log("off");
+                        }
+                        Debug.Log(i);
+                    }
+                    
                 }
 
             }
@@ -159,10 +191,56 @@ public class GameManager : MonoBehaviour
     {
         
         MakeDrink(Alcohols[OrderNumber].Prefab);
+        Debug.Log("barorder");
     }
     public void MakeDrink(GameObject DrinkPrefab)
     {
         Instantiate<GameObject>(DrinkPrefab);
+        Debug.Log("makedrink");
+        
+    }
+    public void LiqourOrder()
+    {
+        if(Alcohols[2].served == false)
+        {
+            BarOrder(2);
+            Alcohols[2].served = true;
+            Debug.Log("liqourorder");
+        }
+        Debug.Log("x");
+        BarPanel.SetActive(false);
+
+    }
+    public void GinOrder()
+    {
+        if (Alcohols[1].served == false)
+        {
+            BarOrder(1);
+            Alcohols[1].served = true;
+        }
+        BarPanel.SetActive(false);
+    }
+    public void WhiskeyOrder()
+    {
+        if (Alcohols[3].served == false)
+        {
+            BarOrder(3);
+            Alcohols[3].served = true;
+        }
+        BarPanel.SetActive(false);
+    }
+    public void BourbonOrder()
+    {
+        if (Alcohols[4].served == false)
+        {
+            BarOrder(4);
+            Alcohols[4].served = true;
+        }
+        BarPanel.SetActive(false);
+    }
+    public void Highlight(GameObject gameObject)
+    {
+       // gameObject.GetComponent<SpriteRenderer>.sprite = (gameObject)Highlighted;
     }
 
 }

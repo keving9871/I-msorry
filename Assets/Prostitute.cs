@@ -9,15 +9,18 @@ public class Prostitute {
     
     public int forpreference;
 
+    public bool Highlighted;
+
     public Prostitute()
     {
        
     }
 
-    public Prostitute(GameObject Prefab_, int preference)
+    public Prostitute(GameObject Prefab_, int preference, bool highlighted_)
     {
         Prefab = Prefab_;
 
         this.forpreference = preference;
+        Highlighted = highlighted_;
     }
 }

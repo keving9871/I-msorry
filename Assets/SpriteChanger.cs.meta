@@ -1,11 +1,14 @@
 fileFormatVersion: 2
 guid: 9c94ecfd395d1c94b82ed5ebbc41639b
-timeCreated: 1524855428
+timeCreated: 1524958987
 licenseType: Free
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - gameManager: {instanceID: 0}
+  - BottleH: {fileID: 21300020, guid: 4f95c11d4bbf2c549b9ea41e22289114, type: 3}
+  - Bottle: {fileID: 21300012, guid: 4f95c11d4bbf2c549b9ea41e22289114, type: 3}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

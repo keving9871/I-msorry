@@ -8,15 +8,21 @@ public class Alcohol  {
     
     public int forpreference;
 
+    public bool served;
+
+    public bool Highlighted;
+
     public Alcohol()
     {
 
     }
 
-    public Alcohol(GameObject Prefab_, int preference)
+    public Alcohol(GameObject Prefab_, int preference, bool served_ , bool highlighted_)
     {
         Prefab = Prefab_;
 
         this.forpreference = preference;
+        this.served = served_;
+        Highlighted = highlighted_;
     }
 }
