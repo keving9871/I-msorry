@@ -24,13 +24,4 @@ public class UIManager : MonoBehaviour {
         DayTracker.text = DayTracker.ToString();
     }
 
-
-	void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
 }
