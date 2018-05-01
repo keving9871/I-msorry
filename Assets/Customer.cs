@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Customer {
-    public Sprite sprite;
+    public GameObject customer;
 
     public bool killer = false;
     public int Foodpreference;
@@ -15,9 +15,9 @@ public class Customer {
 
     }
 
-    public Customer(Sprite sprite, int food, int drink, int women)
+    public Customer(GameObject customer_, int food, int drink, int women)
     {
-        this.sprite = sprite;
+        this.customer = customer_;
       
         this.Foodpreference = food;
         this.Drinkpreference = drink;

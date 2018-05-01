@@ -18,6 +18,7 @@ TagManager:
   - BB
   - BG
   - Steak
+  - CustomerSitting
   layers:
   - Default
   - TransparentFX

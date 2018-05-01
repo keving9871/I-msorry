@@ -4,13 +4,28 @@ using UnityEngine;
 
 public class FollowMouse : MonoBehaviour {
 
-	// Use this for initialization
-	void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
+    private Vector3 mousePosition;
+    public float moveSpeed = 0.1f;
+
+    public GameManager gameManager;
+    // Use this for initialization
+    void Start()
+    {
+        gameManager = GameObject.FindGameObjectWithTag("GameController").GetComponent<GameManager>();
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        if (gameManager.followmouse == true)
+        {
+            if (Input.GetMouseButton(0))
+            {
+                mousePosition = Input.mousePosition;
+                mousePosition = Camera.main.ScreenToWorldPoint(mousePosition);
+                transform.position = Vector2.Lerp(transform.position, mousePosition, moveSpeed);
+            }
+        }
+
+    }
 }

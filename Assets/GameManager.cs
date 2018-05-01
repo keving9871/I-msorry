@@ -14,18 +14,16 @@ public class GameManager : MonoBehaviour
     public GameObject Mollies; //5
     public GameObject Pearls; //6
     public GameObject Ais; //7
-    public GameObject Vanessas; //8
-    public GameObject Julias; //9
-    public GameObject Alices; //10
+
 
     
 
     public Alcohol[] Alcohols;
 
-    public GameObject Gins; //1
-    public GameObject Liquors;//2
-    public GameObject Whiskeys;//3
-    public GameObject Bourbons;//4
+    public GameObject Bottles; //1
+    public GameObject Shots;//2
+    public GameObject Glasss;//3
+    public GameObject BottleFats;//4
 
 
 
@@ -59,7 +57,10 @@ public class GameManager : MonoBehaviour
 
 
     public bool SomethingsHighlighted = false;
+    public bool followmouse = false;
 
+
+    public CustomerOrderSystem COS;
 
 
     // Use this for initialization
@@ -74,11 +75,9 @@ public class GameManager : MonoBehaviour
         Prostitute Mollie = new Prostitute(Mollies, 5, false);
         Prostitute Pearl = new Prostitute(Pearls, 6, false);
         Prostitute Ai = new Prostitute(Ais, 7, false);
-        Prostitute Vanessa = new Prostitute(Vanessas, 8, false);
-        Prostitute Julia = new Prostitute(Julias, 9, false);
-        Prostitute Alice = new Prostitute(Alices, 10, false);
+       
 
-        Prostitutes = new Prostitute[11];
+        Prostitutes = new Prostitute[8];
 
         Prostitutes[1] = Bertha;
         Prostitutes[2] = Amalia;
@@ -87,22 +86,19 @@ public class GameManager : MonoBehaviour
         Prostitutes[5] = Mollie;
         Prostitutes[6] = Pearl;
         Prostitutes[7] = Ai;
-        Prostitutes[8] = Vanessa;
-        Prostitutes[9] = Julia;
-        Prostitutes[10] = Alice;
-
+    
         //Alcohol(Sprite sprite, string name, int preference, served, highlighted)
-        Alcohol Gin = new Alcohol(Gins, 1, false, false);
-        Alcohol Liquor = new Alcohol(Liquors, 2, false, false);
-        Alcohol Whiskey = new Alcohol(Whiskeys, 3, false, false);
-        Alcohol Bourbon = new Alcohol(Bourbons, 4, false, false);
+        Alcohol Bottle = new Alcohol(Bottles, 1, false, false);
+        Alcohol Shot = new Alcohol(Shots, 2, false, false);
+        Alcohol Glass = new Alcohol(Glasss, 3, false, false);
+        Alcohol BottleFat = new Alcohol(BottleFats, 4, false, false);
 
         Alcohols = new Alcohol[5];
 
-        Alcohols[1] = Gin;
-        Alcohols[2] = Liquor;
-        Alcohols[3] = Whiskey;
-        Alcohols[4] = Bourbon;
+        Alcohols[1] = Bottle;
+        Alcohols[2] = Shot;
+        Alcohols[3] = Glass;
+        Alcohols[4] = BottleFat;
 
         //public Food(GameObject Prefab_, int preference, bool served_, bool highlighted_)
         Food Steak = new Food(Steaks, 1, false, false);
@@ -116,6 +112,8 @@ public class GameManager : MonoBehaviour
         Foods[2] = BB;
         Foods[3] = BG;
         Foods[4] = Chicken;
+
+       
 
 
         // Customer(Sprite sprite, int food, int drink, int women)
@@ -156,8 +154,29 @@ public class GameManager : MonoBehaviour
                 }
                 if(hit.collider.gameObject.tag == "Bottle" && SomethingsHighlighted == false)
                 {
-                    Alcohols[2].Highlighted = true;
+                    Alcohols[1].Highlighted = true;
                    
+                    SomethingsHighlighted = true;
+
+                }
+                if (hit.collider.gameObject.tag == "Shot" && SomethingsHighlighted == false)
+                {
+                    Alcohols[2].Highlighted = true;
+
+                    SomethingsHighlighted = true;
+
+                }
+                if (hit.collider.gameObject.tag == "Glass" && SomethingsHighlighted == false)
+                {
+                    Alcohols[3].Highlighted = true;
+
+                    SomethingsHighlighted = true;
+
+                }
+                if (hit.collider.gameObject.tag == "BottleFat" && SomethingsHighlighted == false)
+                {
+                    Alcohols[4].Highlighted = true;
+
                     SomethingsHighlighted = true;
 
                 }
@@ -189,6 +208,10 @@ public class GameManager : MonoBehaviour
                     SomethingsHighlighted = true;
 
                 }
+                if(hit.collider.gameObject.tag == "Customer" && SomethingsHighlighted == false)
+                {
+                    followmouse = true;
+                }
 
             }
             else
@@ -206,7 +229,7 @@ public class GameManager : MonoBehaviour
                 }
                 if(SomethingsHighlighted == true)
                 {
-                    
+                    Debug.Log("running");
                     for (int i = 1; i < Alcohols.Length; i++)
                     {
                         if(Alcohols[i].Highlighted == true)
@@ -217,7 +240,17 @@ public class GameManager : MonoBehaviour
                         }
                         
                     }
-                    
+                    for (int i = 1; i < Foods.Length; i++)
+                    {
+                        if (Foods[i].Highlighted == true)
+                        {
+                            Foods[i].Highlighted = false;
+                            SomethingsHighlighted = false;
+
+                        }
+
+                    }
+
                 }
 
             }
@@ -238,19 +271,19 @@ public class GameManager : MonoBehaviour
         Debug.Log("makedrink");
         
     }
-    public void LiqourOrder()
+    public void ShotOrder()
     {
         if(Alcohols[2].served == false)
         {
             BarOrder(2);
             Alcohols[2].served = true;
-            Debug.Log("liqourorder");
+            
         }
-        Debug.Log("x");
+      
         BarPanel.SetActive(false);
 
     }
-    public void GinOrder()
+    public void BottleOrder()
     {
         if (Alcohols[1].served == false)
         {
@@ -259,7 +292,7 @@ public class GameManager : MonoBehaviour
         }
         BarPanel.SetActive(false);
     }
-    public void WhiskeyOrder()
+    public void GlassOrder()
     {
         if (Alcohols[3].served == false)
         {
@@ -268,7 +301,7 @@ public class GameManager : MonoBehaviour
         }
         BarPanel.SetActive(false);
     }
-    public void BourbonOrder()
+    public void BottleFatOrder()
     {
         if (Alcohols[4].served == false)
         {

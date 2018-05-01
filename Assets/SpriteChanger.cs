@@ -5,20 +5,10 @@ using UnityEngine;
 public class SpriteChanger : MonoBehaviour {
     public GameManager gameManager;
 
-    public Sprite BottleH;
-    public Sprite Bottle;
+    public Sprite Sprite;
+    public Sprite Highlighted;
 
-    public Sprite Chicken;
-    public Sprite ChickenH;
-
-    public Sprite Steak;
-    public Sprite SteakH;
-
-    public Sprite BB;
-    public Sprite BBH;
-
-    public Sprite BG;
-    public Sprite BGH;
+   
 
     // Use this for initialization
     void Start()
@@ -31,57 +21,90 @@ public class SpriteChanger : MonoBehaviour {
     {
         if (this.gameObject.tag == "Bottle")
         {
-            if (gameManager.Alcohols[2].Highlighted == true)
+            if (gameManager.Alcohols[1].Highlighted == true)
             {
-                this.gameObject.GetComponent<SpriteRenderer>().sprite = BottleH;
+                this.gameObject.GetComponent<SpriteRenderer>().sprite = Highlighted;
             }
             else
             {
-                this.gameObject.GetComponent<SpriteRenderer>().sprite = Bottle;
+                this.gameObject.GetComponent<SpriteRenderer>().sprite = Sprite;
+            }
+        }
+        if (this.gameObject.tag == "BottleFat")
+        {
+            if (gameManager.Alcohols[4].Highlighted == true)
+            {
+                this.gameObject.GetComponent<SpriteRenderer>().sprite = Highlighted;
+            }
+            else
+            {
+                this.gameObject.GetComponent<SpriteRenderer>().sprite = Sprite;
+            }
+        }
+        if (this.gameObject.tag == "Shot")
+        {
+            if (gameManager.Alcohols[2].Highlighted == true)
+            {
+                this.gameObject.GetComponent<SpriteRenderer>().sprite = Highlighted;
+            }
+            else
+            {
+                this.gameObject.GetComponent<SpriteRenderer>().sprite = Sprite;
+            }
+        }
+        if (this.gameObject.tag == "Glass")
+        {
+            if (gameManager.Alcohols[3].Highlighted == true)
+            {
+                this.gameObject.GetComponent<SpriteRenderer>().sprite = Highlighted;
+            }
+            else
+            {
+                this.gameObject.GetComponent<SpriteRenderer>().sprite = Sprite;
             }
         }
         else if (this.gameObject.tag == "Chicken")
         {
             if (gameManager.Foods[4].Highlighted == true)
             {
-                this.gameObject.GetComponent<SpriteRenderer>().sprite = ChickenH;
+                this.gameObject.GetComponent<SpriteRenderer>().sprite = Highlighted;
             }
             else
             {
-                this.gameObject.GetComponent<SpriteRenderer>().sprite = Chicken;
+                this.gameObject.GetComponent<SpriteRenderer>().sprite = Sprite;
             }
         }
         else if (this.gameObject.tag == "BB")
         {
             if (gameManager.Foods[2].Highlighted == true)
             {
-                this.gameObject.GetComponent<SpriteRenderer>().sprite = BBH;
+                this.gameObject.GetComponent<SpriteRenderer>().sprite = Highlighted;
             }
             else
             {
-                this.gameObject.GetComponent<SpriteRenderer>().sprite = BB;
+                this.gameObject.GetComponent<SpriteRenderer>().sprite = Sprite;
             }
         }
         else if (this.gameObject.tag == "BG")
         {
             if (gameManager.Foods[3].Highlighted == true)
             {
-                this.gameObject.GetComponent<SpriteRenderer>().sprite = BGH;
+                this.gameObject.GetComponent<SpriteRenderer>().sprite = Highlighted;
             }
             else
             {
-                this.gameObject.GetComponent<SpriteRenderer>().sprite = BG;
+                this.gameObject.GetComponent<SpriteRenderer>().sprite = Sprite;
             }
         }
         else if (this.gameObject.tag == "Steak")
         {
             if (gameManager.Foods[1].Highlighted == true)
             {
-                this.gameObject.GetComponent<SpriteRenderer>().sprite = SteakH;
+                this.gameObject.GetComponent<SpriteRenderer>().sprite = Highlighted;
             }
             else
             {
-                this.gameObject.GetComponent<SpriteRenderer>().sprite = Steak;
+                this.gameObject.GetComponent<SpriteRenderer>().sprite = Sprite;
             }
         }
     }
