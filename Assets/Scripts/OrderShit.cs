@@ -11,7 +11,8 @@ public class OrderShit : MonoBehaviour {
     public GameManager gameManager;
 
     // Use this for initialization
-    void Start () {
+    void Start()
+    {
         gameManager = GameObject.FindGameObjectWithTag("GameController").GetComponent<GameManager>();
 
         if (currentcustomer.Drinkpreference == 1)
@@ -31,13 +32,13 @@ public class OrderShit : MonoBehaviour {
             Invoke("OrderBottleFat", 1f);
         }
 
-
-
-      //  if(this.gameObject)
     }
+
+
 	
 	// Update is called once per frame
-	void Update () {
+	void Update ()
+    {
 		
 	}
 }
