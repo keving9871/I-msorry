@@ -1,0 +1,31 @@
+fileFormatVersion: 2
+guid: 5a22ca273082e2f47bf478c42b3d0c68
+timeCreated: 1524956636
+licenseType: Free
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - Berthas: {instanceID: 0}
+  - Amalias: {instanceID: 0}
+  - Eleanors: {instanceID: 0}
+  - Fannies: {instanceID: 0}
+  - Mollies: {instanceID: 0}
+  - Pearls: {instanceID: 0}
+  - Ais: {instanceID: 0}
+  - Vanessas: {instanceID: 0}
+  - Julias: {instanceID: 0}
+  - Alices: {instanceID: 0}
+  - Gins: {instanceID: 0}
+  - Liquors: {fileID: 1202257352656456, guid: 5e091dc997343be4eaf3659099c5e0eb, type: 2}
+  - Whiskeys: {instanceID: 0}
+  - Bourbons: {instanceID: 0}
+  - Child: {instanceID: 0}
+  - Parent: {instanceID: 0}
+  - BarPanel: {instanceID: 0}
+  - FoodPanel: {instanceID: 0}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

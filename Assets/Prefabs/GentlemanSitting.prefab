@@ -22,7 +22,7 @@ GameObject:
   - component: {fileID: 212223795122289382}
   - component: {fileID: 61238055854776472}
   m_Layer: 0
-  m_Name: SmallboySitting
+  m_Name: GentlemanSitting
   m_TagString: CustomerSitting
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
