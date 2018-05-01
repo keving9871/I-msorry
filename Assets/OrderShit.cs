@@ -33,7 +33,7 @@ public class OrderShit : MonoBehaviour {
 
 
 
-        if(this.gameObject)
+      //  if(this.gameObject)
     }
 	
 	// Update is called once per frame
