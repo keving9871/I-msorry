@@ -2,8 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Customer {
-    public GameObject customer;
+public class Customer : MonoBehaviour {
+   // public GameObject customer;
 
     public bool killer = false;
     public int Foodpreference;
@@ -15,9 +15,9 @@ public class Customer {
 
     }
 
-    public Customer(GameObject customer_, int food, int drink, int women)
+    public Customer(int food, int drink, int women)
     {
-        this.customer = customer_;
+      //  this.customer = customer_;
       
         this.Foodpreference = food;
         this.Drinkpreference = drink;
