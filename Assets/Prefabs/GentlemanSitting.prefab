@@ -22,7 +22,7 @@ GameObject:
   - component: {fileID: 212223795122289382}
   - component: {fileID: 61238055854776472}
   m_Layer: 0
-  m_Name: GentlemanSitting
+  m_Name: SmallboySitting
   m_TagString: CustomerSitting
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -84,7 +84,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1702465988407752}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.85, y: -1.04, z: 0}
+  m_LocalPosition: {x: 1.85, y: -1.04, z: 1}
   m_LocalScale: {x: 2.7423244, y: 2.742324, z: 2.742324}
   m_Children:
   - {fileID: 4926790321550170}
@@ -148,7 +148,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.38, y: 0.69}
+    oldSize: {x: 0.4, y: 0.7}
     newSize: {x: 0.34, y: 0.77}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -177,6 +177,7 @@ MonoBehaviour:
   BG: {fileID: 21300016, guid: 4f95c11d4bbf2c549b9ea41e22289114, type: 3}
   Chicken: {fileID: 21300014, guid: 4f95c11d4bbf2c549b9ea41e22289114, type: 3}
   bubble: {fileID: 1808515087928150}
+  CustomerNumber: 0
 --- !u!212 &212074638420183252
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -255,7 +256,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 2
-  m_Sprite: {fileID: 21300002, guid: ed12ac2a88bb28342ba531842d3651ee, type: 3}
+  m_Sprite: {fileID: 21300006, guid: ed12ac2a88bb28342ba531842d3651ee, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0

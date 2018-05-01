@@ -58,8 +58,8 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.26, y: 0.27}
-    newSize: {x: 0.1, y: 0.26}
+    oldSize: {x: 0.24, y: 0.27}
+    newSize: {x: 0.11, y: 0.26}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
@@ -79,16 +79,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameManager: {fileID: 0}
-  BottleH: {fileID: 21300020, guid: 4f95c11d4bbf2c549b9ea41e22289114, type: 3}
-  Bottle: {fileID: 21300012, guid: 4f95c11d4bbf2c549b9ea41e22289114, type: 3}
-  Chicken: {fileID: 21300000, guid: 4f95c11d4bbf2c549b9ea41e22289114, type: 3}
-  ChickenH: {fileID: 21300008, guid: 4f95c11d4bbf2c549b9ea41e22289114, type: 3}
-  Steak: {fileID: 21300006, guid: 4f95c11d4bbf2c549b9ea41e22289114, type: 3}
-  SteakH: {fileID: 21300020, guid: 4f95c11d4bbf2c549b9ea41e22289114, type: 3}
-  BB: {fileID: 21300004, guid: 4f95c11d4bbf2c549b9ea41e22289114, type: 3}
-  BBH: {fileID: 21300018, guid: 4f95c11d4bbf2c549b9ea41e22289114, type: 3}
-  BG: {fileID: 21300002, guid: 4f95c11d4bbf2c549b9ea41e22289114, type: 3}
-  BGH: {fileID: 21300016, guid: 4f95c11d4bbf2c549b9ea41e22289114, type: 3}
+  Sprite: {fileID: 21300016, guid: 4f95c11d4bbf2c549b9ea41e22289114, type: 3}
+  Highlighted: {fileID: 21300010, guid: 4f95c11d4bbf2c549b9ea41e22289114, type: 3}
 --- !u!212 &212541906270891280
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -123,12 +115,12 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 8
-  m_Sprite: {fileID: 21300002, guid: 4f95c11d4bbf2c549b9ea41e22289114, type: 3}
+  m_Sprite: {fileID: 21300016, guid: 4f95c11d4bbf2c549b9ea41e22289114, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 0.1, y: 0.26}
+  m_Size: {x: 0.11, y: 0.26}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1

@@ -23,7 +23,7 @@ GameObject:
   - component: {fileID: 61065219372077682}
   m_Layer: 0
   m_Name: GreenJacketSitting
-  m_TagString: Customer
+  m_TagString: CustomerSitting
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -84,7 +84,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1012040142811092}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -3.23, y: -1.1, z: 0}
+  m_LocalPosition: {x: -3.23, y: -1.1, z: 1}
   m_LocalScale: {x: 2.7423244, y: 2.742324, z: 2.742324}
   m_Children:
   - {fileID: 4244341944024382}
@@ -177,6 +177,7 @@ MonoBehaviour:
   BG: {fileID: 21300016, guid: 4f95c11d4bbf2c549b9ea41e22289114, type: 3}
   Chicken: {fileID: 21300014, guid: 4f95c11d4bbf2c549b9ea41e22289114, type: 3}
   bubble: {fileID: 1441631970329000}
+  CustomerNumber: 0
 --- !u!212 &212031254246988674
 SpriteRenderer:
   m_ObjectHideFlags: 1

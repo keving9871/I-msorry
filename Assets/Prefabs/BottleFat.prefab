@@ -79,8 +79,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameManager: {fileID: 0}
-  Sprite: {fileID: 21300026, guid: 4f95c11d4bbf2c549b9ea41e22289114, type: 3}
-  Highlighted: {fileID: 21300002, guid: 4f95c11d4bbf2c549b9ea41e22289114, type: 3}
+  Sprite: {fileID: 21300028, guid: 4f95c11d4bbf2c549b9ea41e22289114, type: 3}
+  Highlighted: {fileID: 21300030, guid: 4f95c11d4bbf2c549b9ea41e22289114, type: 3}
 --- !u!212 &212659005493568176
 SpriteRenderer:
   m_ObjectHideFlags: 1

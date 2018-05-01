@@ -97,7 +97,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1850547054119646}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.77, y: -1.08, z: 0}
+  m_LocalPosition: {x: 1.77, y: -1.08, z: 1}
   m_LocalScale: {x: 2.7423244, y: 2.742324, z: 2.742324}
   m_Children:
   - {fileID: 4391303803873256}
@@ -177,6 +177,7 @@ MonoBehaviour:
   BG: {fileID: 21300016, guid: 4f95c11d4bbf2c549b9ea41e22289114, type: 3}
   Chicken: {fileID: 21300014, guid: 4f95c11d4bbf2c549b9ea41e22289114, type: 3}
   bubble: {fileID: 1014395025927860}
+  CustomerNumber: 0
 --- !u!212 &212622987225281442
 SpriteRenderer:
   m_ObjectHideFlags: 1

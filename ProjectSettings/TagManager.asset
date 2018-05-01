@@ -19,6 +19,12 @@ TagManager:
   - BG
   - Steak
   - CustomerSitting
+  - Shot
+  - Glass
+  - BottleFat
+  - Table 2
+  - Table 3
+  - Table 4
   layers:
   - Default
   - TransparentFX
