@@ -83,7 +83,7 @@ public class GameManager : MonoBehaviour
 
     public OrderShit OS;
 
-    public bool CustomerSpawned = false;
+    public bool CustomerSpawned = true;
 
     public Prostitute SpawnGirl;
 
@@ -121,7 +121,13 @@ public class GameManager : MonoBehaviour
         Prostitutes[6] = Pearl;
         Prostitutes[7] = Ai;
 
-        
+        Prostitutes[1].killed = true;
+        Prostitutes[2].killed = true;
+        Prostitutes[3].killed = true;
+        Prostitutes[4].killed = true;
+        Prostitutes[5].killed = true;
+        Prostitutes[6].killed = true;
+
 
         //Alcohol(Sprite sprite, string name, int preference, served, highlighted)
         Alcohol Bottle = new Alcohol(Bottles, 1, false, false);
@@ -149,7 +155,8 @@ public class GameManager : MonoBehaviour
         Foods[3] = BG;
         Foods[4] = Chicken;
 
-
+        DontDestroyOnLoad(this.gameObject);
+        Killed();
 
     }
 
@@ -170,7 +177,7 @@ public class GameManager : MonoBehaviour
 
 
         SceneChanger = CheckGirls();
-        if (SpawnGirl == null)
+        if (SceneChanger == null)
         {
             SceneManager.LoadScene("Ledger");
 
@@ -577,6 +584,21 @@ public class GameManager : MonoBehaviour
     public void StartGame()
     {
         SceneManager.LoadScene("Saloon");
+    }
+
+    public void Killed()
+    {
+        for (int i = 1; i < Prostitutes.Length; i++)
+        {
+            if (Prostitutes[i].killed == true)
+            {
+
+
+                Prostitutes[i].rented = true;
+
+            }
+
+        }
     }
 }
 
