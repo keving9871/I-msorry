@@ -11,15 +11,23 @@ public class Prostitute {
 
     public bool Highlighted;
 
+    public GameObject Girlmade;
+
+    public bool killed;
+
+    public bool rented;
+
+    public bool spawned;
+
     public Prostitute()
     {
        
     }
 
-    public Prostitute(GameObject Prefab_, int preference, bool highlighted_)
+    public Prostitute(GameObject Prefab_, int preference, bool highlighted_ )
     {
         Prefab = Prefab_;
-
+      
         this.forpreference = preference;
         Highlighted = highlighted_;
     }

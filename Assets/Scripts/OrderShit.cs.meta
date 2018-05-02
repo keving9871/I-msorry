@@ -5,7 +5,29 @@ licenseType: Free
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - COS: {instanceID: 0}
+  - gameManager: {instanceID: 0}
+  - BigBoySitting: {fileID: 1925978147980416, guid: 3a4442028b6b7c545bb7397dcd1cafef,
+      type: 2}
+  - SmallBoySitting: {fileID: 1213821245263640, guid: da38c04de6dc24544986a2c9127fbe26,
+      type: 2}
+  - GreenBoySitting: {fileID: 1939765685607564, guid: 9c3163967ca6d2a45b705543b0a8fbf6,
+      type: 2}
+  - YellowBoySitting: {fileID: 1221829557311116, guid: 675daeb812f4cc64d925c89caf757f2d,
+      type: 2}
+  - PinkBoySitting: {fileID: 1186339930594930, guid: 8407f8fc62e6c3845869801389b91ffd,
+      type: 2}
+  - BlueBoySitting: {fileID: 1668059234230070, guid: f0a80ddf63627e44290069e4f3d01256,
+      type: 2}
+  - CrazySitting: {fileID: 1392023763099496, guid: 3bbbb182643bd2d489154159f1f8bc23,
+      type: 2}
+  - GreenJacketSitting: {fileID: 1012040142811092, guid: 69745d6982ff43048bc0c30f948f0fb1,
+      type: 2}
+  - GentlemanSitting: {fileID: 1702465988407752, guid: 43aa07d67bb1d714583e0457567abf2d,
+      type: 2}
+  - FarmerSitting: {fileID: 1334053669185912, guid: 27a1785627d21e342adf14edc436c290,
+      type: 2}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

@@ -4,7 +4,9 @@ using UnityEngine;
 
 public class Alcohol  {
 
-    public GameObject Prefab;
+    public GameObject drinkobject;
+
+    public GameObject drinkmade;
     
     public int forpreference;
 
@@ -17,9 +19,9 @@ public class Alcohol  {
 
     }
 
-    public Alcohol(GameObject Prefab_, int preference, bool served_ , bool highlighted_)
+    public Alcohol(GameObject drinkobject_, int preference, bool served_ , bool highlighted_)
     {
-        Prefab = Prefab_;
+        drinkobject = drinkobject_;
 
         this.forpreference = preference;
         this.served = served_;
