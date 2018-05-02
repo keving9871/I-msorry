@@ -83,7 +83,7 @@ public class GameManager : MonoBehaviour
 
     public OrderShit OS;
 
-    public bool CustomerSpawned = false;
+    public bool CustomerSpawned = true;
 
     public Prostitute SpawnGirl;
 
@@ -149,7 +149,7 @@ public class GameManager : MonoBehaviour
         Foods[3] = BG;
         Foods[4] = Chicken;
 
-
+        DontDestroyOnLoad(this.gameObject);
 
     }
 
@@ -170,7 +170,7 @@ public class GameManager : MonoBehaviour
 
 
         SceneChanger = CheckGirls();
-        if (SpawnGirl == null)
+        if (SceneChanger == null)
         {
             SceneManager.LoadScene("Ledger");
 

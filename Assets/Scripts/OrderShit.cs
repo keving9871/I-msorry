@@ -8,7 +8,8 @@ public class OrderShit : MonoBehaviour {
 
     public CustomerOrderSystem COS;
 
-    public LevelManager gameManager;
+    public LevelManager LevelManager;
+    public GameManager gameManager;
 
     public bool yes = false;
 
@@ -30,47 +31,48 @@ public class OrderShit : MonoBehaviour {
 
     // Use this for initialization
     void Start () {
-        gameManager = GameObject.FindGameObjectWithTag("GameController").GetComponent<LevelManager>();
+        LevelManager = GameObject.FindGameObjectWithTag("GameController").GetComponent<LevelManager>();
+        gameManager = GameObject.FindGameObjectWithTag("GameController").GetComponent<GameManager>();
 
         if (this.gameObject == BigBoySitting)
         {
-            currentcustomer = gameManager.Customers[0];
+            currentcustomer = LevelManager.Customers[0];
         }
         if (this.gameObject == SmallBoySitting)
         {
-            currentcustomer = gameManager.Customers[1];
+            currentcustomer = LevelManager.Customers[1];
         }
         if (this.gameObject == FarmerSitting)
         {
-            currentcustomer = gameManager.Customers[2];
+            currentcustomer = LevelManager.Customers[2];
         }
         if (this.gameObject == GentlemanSitting)
         {
-            currentcustomer = gameManager.Customers[3];
+            currentcustomer = LevelManager.Customers[3];
         }
         if (this.gameObject == CrazySitting)
         {
-            currentcustomer = gameManager.Customers[4];
+            currentcustomer = LevelManager.Customers[4];
         }
         if (this.gameObject == GreenJacketSitting)
         {
-            currentcustomer = gameManager.Customers[5];
+            currentcustomer = LevelManager.Customers[5];
         }
         if (this.gameObject == GreenBoySitting)
         {
-            currentcustomer = gameManager.Customers[6];
+            currentcustomer = LevelManager.Customers[6];
         }
         if (this.gameObject == YellowBoySitting)
         {
-            currentcustomer = gameManager.Customers[7];
+            currentcustomer = LevelManager.Customers[7];
         }
         if (this.gameObject == BlueBoySitting)
         {
-            currentcustomer = gameManager.Customers[8];
+            currentcustomer = LevelManager.Customers[8];
         }
         if (this.gameObject == PinkBoySitting)
         {
-            currentcustomer = gameManager.Customers[9];
+            currentcustomer = LevelManager.Customers[9];
         }
         
           if (currentcustomer.Drinkpreference == 1)
@@ -169,7 +171,7 @@ public class OrderShit : MonoBehaviour {
         }
         if (currentcustomer.Foodpreference == 4)
         {
-            Invoke("InvokeChicken", 2f);
+            Invoke("InvokeChickenOrder", 2f);
         }
     }
     public void InvokeSteakOrder()
@@ -198,6 +200,7 @@ public class OrderShit : MonoBehaviour {
     }
     public void GiveGirl(Prostitute girl)
     {
+        Debug.Log(currentcustomer.tablenumber);
         Destroy(girl.Girlmade);
         if(currentcustomer.killer == true)
         {
@@ -205,6 +208,23 @@ public class OrderShit : MonoBehaviour {
         }
         girl.rented = true;
         Destroy(this.gameObject);
+        gameManager.CustomerSpawned = false;
+        if(currentcustomer.tablenumber == 1)
+        {
+            gameManager.table1taken = false;
+        }
+        if (currentcustomer.tablenumber == 2)
+        {
+            gameManager.table2taken = false;
+        }
+        if (currentcustomer.tablenumber == 3)
+        {
+            gameManager.table3taken = false;
+        }
+        if (currentcustomer.tablenumber == 4)
+        {
+            gameManager.table4taken = false;
+        }
     }
    
 }
