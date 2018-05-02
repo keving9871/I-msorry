@@ -1,21 +1,14 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
-
+using UnityEngine.SceneManagement;
 public class NextDayButton : MonoBehaviour {
 
-    public Button nextDayButton;
 
-
-	void Start ()
+    public void nextDay()
     {
-        Button btn = nextDayButton.GetComponent<Button>();
+       SceneManager.LoadScene("Saloon");
     }
 	
 	
-	void Update ()
-    {
-		
-	}
 }
