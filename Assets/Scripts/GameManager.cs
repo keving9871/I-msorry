@@ -121,14 +121,14 @@ public class GameManager : MonoBehaviour
         Prostitutes[5] = Mollie;
         Prostitutes[6] = Pearl;
         Prostitutes[7] = Ai;
-
+        
         Prostitutes[1].killed = true;
         Prostitutes[2].killed = true;
         Prostitutes[3].killed = true;
         Prostitutes[4].killed = true;
         Prostitutes[5].killed = true;
         Prostitutes[6].killed = true;
-
+        
 
         //Alcohol(Sprite sprite, string name, int preference, served, highlighted)
         Alcohol Bottle = new Alcohol(Bottles, 1, false, false);
@@ -599,6 +599,27 @@ public class GameManager : MonoBehaviour
 
 
                 Prostitutes[i].rented = true;
+
+            }
+
+        }
+    }
+    public void Restart()
+    {
+        for (int i = 1; i < Prostitutes.Length; i++)
+        {
+            if (Prostitutes[i].spawned == true)
+            {
+
+
+                Prostitutes[i].spawned = false;
+
+            }
+            if (Prostitutes[i].rented == true)
+            {
+
+
+                Prostitutes[i].rented = false;
 
             }
 
