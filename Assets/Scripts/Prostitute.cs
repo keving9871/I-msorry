@@ -13,11 +13,11 @@ public class Prostitute {
 
     public GameObject Girlmade;
 
-    public bool killed;
+    public bool killed = false;
 
-    public bool rented;
+    public bool rented = false;
 
-    public bool spawned;
+    public bool spawned = false;
 
     public Prostitute()
     {
