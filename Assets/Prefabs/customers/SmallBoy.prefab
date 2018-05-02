@@ -122,6 +122,17 @@ MonoBehaviour:
   sitting: 0
   LevelManager: {fileID: 0}
   gameManager: {fileID: 0}
+  Bigboys: {fileID: 1066941638938436, guid: 9e906b0a31b1aea43b7951fa8aca0f06, type: 2}
+  Smallboys: {fileID: 1078100756150656}
+  Blueboys: {fileID: 1614125427912754, guid: 6e49138416ef5d34ebcc445500a068bb, type: 2}
+  Yellowboys: {fileID: 1295227224486546, guid: f6fab41b1b0e56148ac6d4a10243ded5, type: 2}
+  Pinkboys: {fileID: 1153643575548066, guid: 83337f5f7cc66cf46ade9a80bde99107, type: 2}
+  Greenjackets: {fileID: 1682249635234266, guid: 914042fd22ac463418e3540b88392a79,
+    type: 2}
+  Crazys: {fileID: 1527524022474530, guid: 7f5ef7ee195067e46968fdf062532955, type: 2}
+  Gentlemans: {fileID: 1132297176512584, guid: 32f8ea0e5e18a0a4380d63ca04a27d67, type: 2}
+  Farmers: {fileID: 1617605688684954, guid: 55dac277b147ef348a0c0b5c3fdae40c, type: 2}
+  Greenboys: {fileID: 1381681548588594, guid: 2d8a5aea78b68ff45849c8ea8be417d3, type: 2}
 --- !u!212 &212067348906669576
 SpriteRenderer:
   m_ObjectHideFlags: 1
