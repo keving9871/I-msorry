@@ -32,6 +32,8 @@ public class LevelManager : MonoBehaviour
 
     public Customer Spawner;
 
+   
+
     public GameManager GameManager;
 
     //public Customer(Sprite sprite, int food, int drink, int women)
@@ -76,6 +78,7 @@ public class LevelManager : MonoBehaviour
     void Update()
 
     {
+       
 
         if (Time.time - lastSpawnTime > spawnDelays && GameManager.CustomerSpawned == false)
 

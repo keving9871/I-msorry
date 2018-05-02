@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -86,6 +87,8 @@ public class GameManager : MonoBehaviour
 
     public Prostitute SpawnGirl;
 
+    public Prostitute SceneChanger;
+
     public float spawnDelays;
 
     float lastSpawnTime = 0;
@@ -162,6 +165,14 @@ public class GameManager : MonoBehaviour
         if(SpawnGirl != null)
         {
             SpawnGirl.Girlmade = Instantiate<GameObject>(SpawnGirl.Prefab);
+
+        }
+
+
+        SceneChanger = CheckGirls();
+        if (SpawnGirl == null)
+        {
+            SceneManager.LoadScene("Ledger");
 
         }
 
@@ -547,6 +558,25 @@ public class GameManager : MonoBehaviour
         }
         return (null);
     }
-   
+   public Prostitute CheckGirls()
+    {
+        for (int i = 1; i < Prostitutes.Length; i++)
+        {
+            if (Prostitutes[i].rented == false)
+            {
+
+                
+                return (Prostitutes[i]);
+
+            }
+
+        }
+        return (null);
+    }
+
+    public void StartGame()
+    {
+        SceneManager.LoadScene("Saloon");
+    }
 }
 
