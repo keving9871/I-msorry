@@ -628,7 +628,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 
+  m_Text: 1
 --- !u!222 &758760647
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -875,7 +875,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 
+  m_Text: 4
 --- !u!222 &1171327950
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -966,7 +966,7 @@ GameObject:
   - component: {fileID: 1312843844}
   - component: {fileID: 1312843843}
   m_Layer: 0
-  m_Name: GameObject
+  m_Name: LedgerManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -984,10 +984,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   roomsRentedtext: {fileID: 1458574459}
-  foodServedtext: {fileID: 0}
-  drinksServedtext: {fileID: 0}
-  daytext: {fileID: 0}
-  totaltext: {fileID: 0}
+  foodServedtext: {fileID: 758760644}
+  drinksServedtext: {fileID: 2122024769}
+  daytext: {fileID: 1795218132}
+  totaltext: {fileID: 1171327947}
+  manager: {fileID: 0}
 --- !u!4 &1312843844
 Transform:
   m_ObjectHideFlags: 0
@@ -1202,7 +1203,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 
+  m_Text: 1
 --- !u!222 &1458574462
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1721,7 +1722,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 
+  m_Text: 1
 --- !u!222 &1795218135
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1943,7 +1944,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 
+  m_Text: 1
 --- !u!222 &2122024772
 CanvasRenderer:
   m_ObjectHideFlags: 0

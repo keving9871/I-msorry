@@ -5,9 +5,11 @@ using UnityEngine.SceneManagement;
 public class NextDayButton : MonoBehaviour {
 
 
+   
+
     public void nextDay()
     {
-       SceneManager.LoadScene("Saloon");
+       SceneManager.LoadScene("Saloon");       
     }
 	
 	

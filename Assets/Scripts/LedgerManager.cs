@@ -11,22 +11,22 @@ public class LedgerManager : MonoBehaviour {
     public GameObject daytext;
     public GameObject totaltext;
 
-  //  public GameManager manager;
+    public GameManager manager;
 
      void Start()
     {
-      //  manager = GameObject.FindGameObjectWithTag("GameController").GetComponent<GameManager>();
+       manager = GameObject.FindGameObjectWithTag("GameController").GetComponent<GameManager>();
     }
 
     void Update ()
     {
-        /*
-        roomsRentedtext.gameObject.GetComponent<Text>().text = (GameManager.manager.RoomsRented);
+       /* 
+        roomsRentedtext.gameObject.GetComponent<Text>().text = (manager.RoomsRented);
         foodServedtext.gameObject.GetComponent<Text>().text = (manager.FoodSold);
-        drinksServedtext.gameObject.GetComponent<Text>().text = (GameManager.);
+        drinksServedtext.gameObject.GetComponent<Text>().text = (GameManager.drinksMade);
         daytext.gameObject.GetComponent<Text>().text = (GameManager.);
         totaltext.gameObject.GetComponent<Text>().text = (GameManager.);
-        
-         */
+        */
+         
     }
 }
