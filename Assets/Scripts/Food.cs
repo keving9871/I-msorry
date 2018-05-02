@@ -5,6 +5,8 @@ using UnityEngine;
 public class Food {
 
     public GameObject Prefab;
+
+    public GameObject FoodMade;
     public string name;
     public int forpreference;
 

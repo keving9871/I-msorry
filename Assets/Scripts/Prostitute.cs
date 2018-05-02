@@ -11,6 +11,8 @@ public class Prostitute {
 
     public bool Highlighted;
 
+    public GameObject Girlmade;
+
     public Prostitute()
     {
        

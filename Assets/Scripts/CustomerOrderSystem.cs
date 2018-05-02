@@ -14,6 +14,8 @@ public class CustomerOrderSystem : MonoBehaviour {
     public Sprite BG;
     public Sprite Chicken;
 
+    public Sprite Girl;
+
     public GameObject bubble;
 
     public int CustomerNumber;
@@ -35,6 +37,7 @@ public class CustomerOrderSystem : MonoBehaviour {
 
     public void DrinkOrderSystem(int ordernumber)
     {
+        
         GetComponent<SpriteRenderer>().enabled = true;
         if(ordernumber == 1)
         {
@@ -107,4 +110,14 @@ public class CustomerOrderSystem : MonoBehaviour {
     {
         FoodOrderSystem(4);
     }
+    public void Stop()
+    {
+        this.gameObject.GetComponent<SpriteRenderer>().enabled = false;
+    }
+
+    public void OrderGirl()
+    {
+        this.gameObject.GetComponent<SpriteRenderer>().sprite = Girl;
+    }
+  
 }

@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
+    public int levelnumber;
 
     public Prostitute[] Prostitutes;
 
@@ -15,8 +16,14 @@ public class GameManager : MonoBehaviour
     public GameObject Pearls; //6
     public GameObject Ais; //7
 
+    public GameObject[] MadeProstitutes;
 
-    
+
+
+
+
+
+
 
     public Alcohol[] Alcohols;
 
@@ -62,10 +69,27 @@ public class GameManager : MonoBehaviour
 
     public CustomerOrderSystem COS;
 
+    public bool table1taken;
+    public bool table2taken;
+    public bool table3taken;
+    public bool table4taken;
+
+    public FollowMouse FollowMouseScript;
+
+    public Alcohol DrinkGiven;
+    public Food FoodGiven;
+    public Prostitute GirlGiven;
+
+    public OrderShit OS;
+
+    public bool CustomerSpawned = false;
+
+
 
     // Use this for initialization
     void Start()
     {
+
 
         //Prostitute(Sprite sprite, string name, int preference, highlighted)
         Prostitute Bertha = new Prostitute(Berthas, 1, false);
@@ -75,7 +99,7 @@ public class GameManager : MonoBehaviour
         Prostitute Mollie = new Prostitute(Mollies, 5, false);
         Prostitute Pearl = new Prostitute(Pearls, 6, false);
         Prostitute Ai = new Prostitute(Ais, 7, false);
-       
+
 
         Prostitutes = new Prostitute[8];
 
@@ -86,7 +110,18 @@ public class GameManager : MonoBehaviour
         Prostitutes[5] = Mollie;
         Prostitutes[6] = Pearl;
         Prostitutes[7] = Ai;
-    
+
+        MadeProstitutes = new GameObject[8];
+
+        MadeProstitutes[1] = Instantiate<GameObject>(Berthas);
+        MadeProstitutes[2] = Instantiate<GameObject>(Amalias);
+        MadeProstitutes[3] = Instantiate<GameObject>(Eleanors);
+        MadeProstitutes[4] = Instantiate<GameObject>(Fannies);
+        MadeProstitutes[5] = Instantiate<GameObject>(Mollies);
+        MadeProstitutes[6] = Instantiate<GameObject>(Pearls);
+        MadeProstitutes[7] = Instantiate<GameObject>(Ais);
+
+
         //Alcohol(Sprite sprite, string name, int preference, served, highlighted)
         Alcohol Bottle = new Alcohol(Bottles, 1, false, false);
         Alcohol Shot = new Alcohol(Shots, 2, false, false);
@@ -113,10 +148,22 @@ public class GameManager : MonoBehaviour
         Foods[3] = BG;
         Foods[4] = Chicken;
 
-       
 
 
-        // Customer(Sprite sprite, int food, int drink, int women)
+
+        //  public Customer(int food, int drink,  GameObject customer_)
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -131,7 +178,7 @@ public class GameManager : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(0))
         {
-            // Scene Management && point and click mechanic
+
             RaycastHit2D hit = Physics2D.Raycast(Camera.main.ScreenToWorldPoint(Input.mousePosition), Camera.main.transform.forward);
             if (hit)
             {
@@ -152,10 +199,10 @@ public class GameManager : MonoBehaviour
                     barpanelopen = true;
 
                 }
-                if(hit.collider.gameObject.tag == "Bottle" && SomethingsHighlighted == false)
+                if (hit.collider.gameObject.tag == "Bottle" && SomethingsHighlighted == false)
                 {
                     Alcohols[1].Highlighted = true;
-                   
+
                     SomethingsHighlighted = true;
 
                 }
@@ -208,10 +255,82 @@ public class GameManager : MonoBehaviour
                     SomethingsHighlighted = true;
 
                 }
-                if(hit.collider.gameObject.tag == "Customer" && SomethingsHighlighted == false)
+                if (hit.collider.gameObject.tag == "Customer" && SomethingsHighlighted == false)
                 {
-                    followmouse = true;
+
+                    FollowMouseScript.SetDraggingObject(hit.collider.gameObject);
+
                 }
+                if (hit.collider.gameObject.tag == "CustomerSitting" && SomethingsHighlighted == true)
+                {
+                    OS = GameObject.FindGameObjectWithTag("CustomerSitting").GetComponent<OrderShit>();
+                    Debug.Log("CustomerSitting");
+                    DrinkGiven = FindAlcohol();
+                    if (DrinkGiven == null)
+                    {
+                        Debug.Log("Findfood");
+                        FoodGiven = FindFood();
+                        if (FoodGiven != null)
+                        {
+                            OS.GiveFood(FoodGiven);
+                            Debug.Log("givefood");
+                        }
+                        else
+                        {
+                            GirlGiven = FindProstitute();
+                            if(GirlGiven != null)
+                            {
+
+                            }
+                            else
+                            {
+
+                            }
+                        }
+                    }
+                    else
+                    {
+                        Debug.Log("givedrink");
+                        OS.GiveDrink(DrinkGiven);
+                    }
+                }
+               
+                if(hit.collider.gameObject.tag == "Bertha" && SomethingsHighlighted == false)
+                {
+                    Prostitutes[1].Highlighted = true;
+                    SomethingsHighlighted = true;
+                }
+                if (hit.collider.gameObject.tag == "Amalia" && SomethingsHighlighted == false)
+                {
+                    Prostitutes[2].Highlighted = true;
+                    SomethingsHighlighted = true;
+                }
+                if (hit.collider.gameObject.tag == "Eleanor" && SomethingsHighlighted == false)
+                {
+                    Prostitutes[3].Highlighted = true;
+                    SomethingsHighlighted = true;
+                }
+                if (hit.collider.gameObject.tag == "Fannie" && SomethingsHighlighted == false)
+                {
+                    Prostitutes[4].Highlighted = true;
+                    SomethingsHighlighted = true;
+                }
+                if (hit.collider.gameObject.tag == "Mollie" && SomethingsHighlighted == false)
+                {
+                    Prostitutes[5].Highlighted = true;
+                    SomethingsHighlighted = true;
+                }
+                if (hit.collider.gameObject.tag == "Pearl" && SomethingsHighlighted == false)
+                {
+                    Prostitutes[6].Highlighted = true;
+                    SomethingsHighlighted = true;
+                }
+                if (hit.collider.gameObject.tag == "Ai" && SomethingsHighlighted == false)
+                {
+                    Prostitutes[7].Highlighted = true;
+                    SomethingsHighlighted = true;
+                }
+              
 
             }
             else
@@ -219,26 +338,26 @@ public class GameManager : MonoBehaviour
                 Debug.Log("else");
                 if (foodpanelopen == true)
                 {
-                  //  FoodPanel.SetActive(false);
-                   // foodpanelopen = false;
+                    //  FoodPanel.SetActive(false);
+                    // foodpanelopen = false;
                 }
                 if (barpanelopen == true)
                 {
-                   // BarPanel.SetActive(false);
-                   // barpanelopen = false;
+                    // BarPanel.SetActive(false);
+                    // barpanelopen = false;
                 }
-                if(SomethingsHighlighted == true)
+                if (SomethingsHighlighted == true)
                 {
                     Debug.Log("running");
                     for (int i = 1; i < Alcohols.Length; i++)
                     {
-                        if(Alcohols[i].Highlighted == true)
+                        if (Alcohols[i].Highlighted == true)
                         {
                             Alcohols[i].Highlighted = false;
                             SomethingsHighlighted = false;
-                            
+
                         }
-                        
+
                     }
                     for (int i = 1; i < Foods.Length; i++)
                     {
@@ -250,6 +369,14 @@ public class GameManager : MonoBehaviour
                         }
 
                     }
+                    for(int i = 1; i < Prostitutes.Length; i++)
+                    {
+                        if(Prostitutes[i].Highlighted == true)
+                        {
+                            Prostitutes[i].Highlighted = false;
+                            SomethingsHighlighted = false;
+                        }
+                    }
 
                 }
 
@@ -260,26 +387,28 @@ public class GameManager : MonoBehaviour
 
     public void BarOrder(int OrderNumber)
     {
-        
-        MakeDrink(Alcohols[OrderNumber].Prefab);
+
+        MakeDrink(Alcohols[OrderNumber].drinkobject, OrderNumber);
         Debug.Log("barorder");
+
     }
-    
-    public void MakeDrink(GameObject DrinkPrefab)
+
+    public void MakeDrink(GameObject DrinkPrefab, int OrderNumber)
     {
-        Instantiate<GameObject>(DrinkPrefab);
+
         Debug.Log("makedrink");
-        
+        Alcohols[OrderNumber].drinkmade = Instantiate<GameObject>(DrinkPrefab);
+
     }
     public void ShotOrder()
     {
-        if(Alcohols[2].served == false)
+        if (Alcohols[2].served == false)
         {
             BarOrder(2);
             Alcohols[2].served = true;
-            
+
         }
-      
+
         BarPanel.SetActive(false);
 
     }
@@ -312,19 +441,19 @@ public class GameManager : MonoBehaviour
     }
     public void Highlight(GameObject gameObject)
     {
-       // gameObject.GetComponent<SpriteRenderer>.sprite = (gameObject)Highlighted;
+        // gameObject.GetComponent<SpriteRenderer>.sprite = (gameObject)Highlighted;
     }
     public void FoodOrder(int OrderNumber)
     {
 
-        MakeFood(Foods[OrderNumber].Prefab);
-       
+        MakeFood(Foods[OrderNumber].Prefab, OrderNumber);
+
     }
 
-    public void MakeFood(GameObject DrinkPrefab)
+    public void MakeFood(GameObject DrinkPrefab, int OrderNumber)
     {
-        Instantiate<GameObject>(DrinkPrefab);
-        
+        Foods[OrderNumber].FoodMade = Instantiate<GameObject>(DrinkPrefab);
+
 
     }
     public void SteakOrder()
@@ -332,8 +461,8 @@ public class GameManager : MonoBehaviour
         if (Foods[1].served == false)
         {
             FoodOrder(1);
-            Foods[1].served = true;         
-        }      
+            Foods[1].served = true;
+        }
         FoodPanel.SetActive(false);
     }
     public void BBOrder()
@@ -363,6 +492,56 @@ public class GameManager : MonoBehaviour
         }
         FoodPanel.SetActive(false);
     }
- 
+
+    public Alcohol FindAlcohol()
+    {
+        for (int i = 1; i < Alcohols.Length; i++)
+        {
+            if (Alcohols[i].Highlighted == true)
+            {
+
+                Alcohols[i].Highlighted = false;
+                SomethingsHighlighted = false;
+                return (Alcohols[i]);
+
+            }
+
+        }
+        return (null);
+    }
+    public Food FindFood()
+    {
+        for (int i = 1; i < Foods.Length; i++)
+        {
+            if (Foods[i].Highlighted == true)
+            {
+
+                Foods[i].Highlighted = false;
+                SomethingsHighlighted = false;
+                return (Foods[i]);
+
+            }
+
+        }
+        return (null);
+    }
+
+    public Prostitute FindProstitute()
+    {
+        for (int i = 1; i < Prostitutes.Length; i++)
+        {
+            if (Prostitutes[i].Highlighted == true)
+            {
+
+                Prostitutes[i].Highlighted = false;
+                SomethingsHighlighted = false;
+                return (Prostitutes[i]);
+
+            }
+
+        }
+        return (null);
+    }
+   
 }
 
