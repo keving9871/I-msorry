@@ -788,6 +788,7 @@ MonoBehaviour:
   OS: {fileID: 0}
   CustomerSpawned: 1
   spawnDelays: 0
+  ledgerlaoded: 0
 --- !u!114 &735043846
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2668,7 +2669,7 @@ AudioSource:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1714125158}
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 971a788bba1c21340ba489eafe38b75f, type: 3}

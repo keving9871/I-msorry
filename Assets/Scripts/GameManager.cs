@@ -95,6 +95,7 @@ public class GameManager : MonoBehaviour
 
     int currentIndex = 0;
 
+    public bool ledgerlaoded = false;
 
     // Use this for initialization
     void Start()
@@ -157,6 +158,7 @@ public class GameManager : MonoBehaviour
 
         DontDestroyOnLoad(this.gameObject);
         Killed();
+        
 
     }
 
@@ -177,9 +179,10 @@ public class GameManager : MonoBehaviour
 
 
         SceneChanger = CheckGirls();
-        if (SceneChanger == null)
+        if (SceneChanger == null && ledgerlaoded == false)
         {
             SceneManager.LoadScene("Ledger");
+            ledgerlaoded = true;
 
         }
 
@@ -266,6 +269,7 @@ public class GameManager : MonoBehaviour
                 {
 
                     FollowMouseScript.SetDraggingObject(hit.collider.gameObject);
+                    ledgerlaoded = false;
 
                 }
                 if (hit.collider.gameObject.tag == "CustomerSitting" && SomethingsHighlighted == true)
