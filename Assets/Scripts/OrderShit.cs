@@ -198,7 +198,13 @@ public class OrderShit : MonoBehaviour {
     }
     public void GiveGirl(Prostitute girl)
     {
-
+        Destroy(girl.Girlmade);
+        if(currentcustomer.killer == true)
+        {
+            girl.killed = true;
+        }
+        girl.rented = true;
+        Destroy(this.gameObject);
     }
    
 }

@@ -787,6 +787,7 @@ MonoBehaviour:
   FollowMouseScript: {fileID: 735043846}
   OS: {fileID: 0}
   CustomerSpawned: 0
+  spawnDelays: 0
 --- !u!114 &735043846
 MonoBehaviour:
   m_ObjectHideFlags: 0

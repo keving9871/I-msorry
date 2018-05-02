@@ -86,7 +86,7 @@ public class LevelManager : MonoBehaviour
             {
                 Spawner = FindCustomerStart();
             }
-            Instantiate<GameObject>(Spawner.customer, spawnPoint.position, spawnPoint.rotation);
+           Spawner.customerspawned = Instantiate<GameObject>(Spawner.customer, spawnPoint.position, spawnPoint.rotation);
 
             
 
@@ -94,7 +94,7 @@ public class LevelManager : MonoBehaviour
 
             lastSpawnTime = Time.time;
 
-            currentIndex++;
+           
             GameManager.CustomerSpawned = true;
 
         }

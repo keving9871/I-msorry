@@ -84,6 +84,13 @@ public class GameManager : MonoBehaviour
 
     public bool CustomerSpawned = false;
 
+    public Prostitute SpawnGirl;
+
+    public float spawnDelays;
+
+    float lastSpawnTime = 0;
+
+    int currentIndex = 0;
 
 
     // Use this for initialization
@@ -111,16 +118,7 @@ public class GameManager : MonoBehaviour
         Prostitutes[6] = Pearl;
         Prostitutes[7] = Ai;
 
-        MadeProstitutes = new GameObject[8];
-
-        MadeProstitutes[1] = Instantiate<GameObject>(Berthas);
-        MadeProstitutes[2] = Instantiate<GameObject>(Amalias);
-        MadeProstitutes[3] = Instantiate<GameObject>(Eleanors);
-        MadeProstitutes[4] = Instantiate<GameObject>(Fannies);
-        MadeProstitutes[5] = Instantiate<GameObject>(Mollies);
-        MadeProstitutes[6] = Instantiate<GameObject>(Pearls);
-        MadeProstitutes[7] = Instantiate<GameObject>(Ais);
-
+        
 
         //Alcohol(Sprite sprite, string name, int preference, served, highlighted)
         Alcohol Bottle = new Alcohol(Bottles, 1, false, false);
@@ -150,23 +148,6 @@ public class GameManager : MonoBehaviour
 
 
 
-
-        //  public Customer(int food, int drink,  GameObject customer_)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     }
 
 
@@ -176,6 +157,14 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+   
+            SpawnGirl = SpawnGirls();
+        if(SpawnGirl != null)
+        {
+            SpawnGirl.Girlmade = Instantiate<GameObject>(SpawnGirl.Prefab);
+
+        }
+
         if (Input.GetMouseButtonDown(0))
         {
 
@@ -268,18 +257,19 @@ public class GameManager : MonoBehaviour
                     DrinkGiven = FindAlcohol();
                     if (DrinkGiven == null)
                     {
-                        Debug.Log("Findfood");
+                        
                         FoodGiven = FindFood();
                         if (FoodGiven != null)
                         {
                             OS.GiveFood(FoodGiven);
-                            Debug.Log("givefood");
+                            
                         }
                         else
                         {
                             GirlGiven = FindProstitute();
                             if(GirlGiven != null)
                             {
+                                OS.GiveGirl(GirlGiven);
 
                             }
                             else
@@ -535,6 +525,21 @@ public class GameManager : MonoBehaviour
 
                 Prostitutes[i].Highlighted = false;
                 SomethingsHighlighted = false;
+                return (Prostitutes[i]);
+
+            }
+
+        }
+        return (null);
+    }
+    public Prostitute SpawnGirls()
+    {
+        for (int i = 1; i < Prostitutes.Length; i++)
+        {
+            if (Prostitutes[i].killed == false && Prostitutes[i].spawned == false)
+            {
+
+                Prostitutes[i].spawned = true;
                 return (Prostitutes[i]);
 
             }

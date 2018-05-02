@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Customer {
    public GameObject customer;
+    public GameObject customerspawned;
 
 
     public bool killer = false;

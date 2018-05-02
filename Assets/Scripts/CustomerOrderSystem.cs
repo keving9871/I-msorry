@@ -117,6 +117,7 @@ public class CustomerOrderSystem : MonoBehaviour {
 
     public void OrderGirl()
     {
+        GetComponent<SpriteRenderer>().enabled = true;
         this.gameObject.GetComponent<SpriteRenderer>().sprite = Girl;
     }
   
