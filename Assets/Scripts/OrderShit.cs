@@ -225,6 +225,10 @@ public class OrderShit : MonoBehaviour {
         {
             gameManager.table4taken = false;
         }
+        gameManager.table1taken = false;
+        gameManager.table3taken = false;
+        gameManager.table2taken = false;
+        gameManager.table4taken = false;
     }
    
 }
